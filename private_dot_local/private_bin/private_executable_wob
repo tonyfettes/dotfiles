@@ -1,0 +1,13 @@
+#!/bin/bash
+
+WOB_PIPE=${XDG_RUNTIME_DIR}/wobpipe
+
+DONE=false
+until $DONE; do
+  read TARGET_VALUE || DONE=true
+  if [[ ${TARGET_VALUE} -gt 100 ]]; then
+    echo 100 > ${WOB_PIPE}
+  elif [[ ${TARGET_VALUE} -gt 0 ]]; then
+    echo ${TARGET_VALUE} > ${WOB_PIPE}
+  fi
+done

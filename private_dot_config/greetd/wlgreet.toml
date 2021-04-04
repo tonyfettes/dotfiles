@@ -1,0 +1,33 @@
+command = "sway-user-service"
+outputMode = "all"
+scale = 1
+
+[background]
+red = 0.180
+green = 0.204
+blue = 0.251
+opacity = 0.5
+
+[headline]
+red = 0.553
+green = 0.753
+blue = 0.816
+opacity = 1.0
+
+[prompt]
+red = 0.506
+green = 0.631
+blue = 0.757
+opacity = 1.0
+
+[promptErr]
+red = 0.922
+green = 0.796
+blue = 0.545
+opacity = 1.0
+
+[border]
+red = 0.298
+green = 0.337
+blue = 0.416
+opacity = 1.0

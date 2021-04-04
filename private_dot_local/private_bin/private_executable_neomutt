@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Make Esc key has no delay
+export ESCDELAY=0
+
+# Main process
+exec /usr/bin/neomutt "$@"
+
+# Clean up temporary files
+for file in $(ls); do
+  rm -- "${file}"
+done

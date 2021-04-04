@@ -1,0 +1,13 @@
+[Unit]
+Description=Log what you do on your computer
+BindsTo=wayland-session.target
+After=wayland-session.target
+After=dex.service
+
+[Service]
+Type=simple
+RemainAfterExit=yes
+ExecStart=/usr/bin/aw-qt
+
+[Install]
+WantedBy=wayland-session.target

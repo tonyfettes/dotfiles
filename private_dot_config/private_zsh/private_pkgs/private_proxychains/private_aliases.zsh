@@ -1,0 +1,1 @@
+alias proxychains='proxychains -q'

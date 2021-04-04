@@ -1,0 +1,12 @@
+[Unit]
+Description=Start XDG autostart applications
+BindsTo=wayland-session.target
+After=wayland-session.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/dex -a
+
+[Install]
+WantedBy=wayland-session.target

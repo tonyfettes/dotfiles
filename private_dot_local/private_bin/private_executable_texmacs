@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+#export HOME=${XDG_DATA_HOME}/texmacs
+#exec /usr/bin/texmacs "$@"
+
+(exec bwrap \
+  --symlink usr/lib /lib \
+  --symlink usr/lib64 /lib64 \
+  --ro-bind /usr/lib /usr/lib \
+  --ro-bind /usr/lib64 /usr/lib64 \
+  --ro-bind /usr/bin /usr/bin \
+  --ro-bind /usr/share /usr/share \
+  --ro-bind /etc/fonts /etc/fonts \
+  --dir /run/user/"$(id -u)" \
+  --ro-bind /run/user/"$(id -u)"/bus /run/user/"$(id -u)"/bus \
+  --dev /dev \
+  --proc /proc \
+  --tmpfs /tmp \
+  --bind /home/tonyfettes/.local/share/texmacs /home/tonyfettes/.TeXmacs \
+  --bind /home/tonyfettes/.local/share/maxima /home/tonyfettes/.maxima \
+  --ro-bind /usr/share/fonts/sarasa-gothic/sarasa-regular.ttc /home/tonyfettes/.local/share/texmacs/fonts/truetype \
+  --die-with-parent \
+  --new-session \
+  /usr/bin/bash /usr/bin/texmacs "$@")

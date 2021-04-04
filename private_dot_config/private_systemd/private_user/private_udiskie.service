@@ -1,0 +1,10 @@
+[Unit]
+Description=Removable disk automounter
+Documentation=man:udiskie(8)
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/udiskie
+
+[Install]
+WantedBy=multi-user.target

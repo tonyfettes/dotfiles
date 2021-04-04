@@ -1,0 +1,13 @@
+[Unit]
+Description=Wayland terminal emulator daemon
+Documentation=man:foot(1)
+BindsTo=wayland-session.target
+After=wayland-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/foot --server
+Restart=on-failure
+
+[Install]
+WantedBy=wayland-session.target

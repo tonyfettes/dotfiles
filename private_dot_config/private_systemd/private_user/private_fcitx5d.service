@@ -1,0 +1,10 @@
+[Unit]
+Description=Next generation of fcitx
+PartOf=wayland-session.target
+After=wayland-session.target
+
+[Service]
+ExecStart=/usr/bin/fcitx5 -Dr
+
+[Install]
+WantedBy=wayland-session.target

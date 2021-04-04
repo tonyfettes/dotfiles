@@ -1,0 +1,180 @@
+{
+  "layer": "bottom", // Waybar at top layer
+  "position": "bottom", // Waybar position (top|bottom|left|right)
+  "height": 23, // Waybar height (to be removed for auto height)
+  // Choose the order of the modules
+  "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
+  "modules-center": [],
+  "modules-right": ["tray", "custom/waybar-mpris", "idle_inhibitor", "custom/arch_updates", "pulseaudio", "network", "cpu", "memory", "disk", "temperature", "backlight", "battery", "clock"],
+  // Modules configuration
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": false,
+    "format": " {name} {icon}",
+    "format-icons": {
+       "visible": "<span foreground=\"#81a1c1\" background=\"#2e3440\"></span>",
+       "urgent":  "<span foreground=\"#ebcb9b\" background=\"#2e3440\"></span>",
+       "default": "<span foreground=\"#5e81ac\" background=\"#2e3440\"></span>",
+       "focused": "<span foreground=\"#88c0d0\" background=\"#2e3440\"></span>"
+     }
+  },
+  "sway/mode": {
+    "format": "<span color=\"#2e3440\" background=\"#8fbcbb\"></span> {} <span color=\"#8fbcbb\" background=\"#2e3440\"></span>"
+  },
+  "sway/window": {
+    "format": " {} ",
+    "max-length": 50
+  },
+  //"mpd": {
+  //  "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ ",
+  //  "format-disconnected": "Disconnected ",
+  //  "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+  //  "unknown-tag": "N/A",
+  //  "interval": 2,
+  //  "consume-icons": {
+  //    "on": " "
+  //  },
+  //  "random-icons": {
+  //    "off": "<span color=\"#f53c3c\"></span> ",
+  //    "on": " "
+  //  },
+  //  "repeat-icons": {
+  //    "on": " "
+  //  },
+  //  "single-icons": {
+  //    "on": "1 "
+  //  },
+  //  "state-icons": {
+  //    "paused": "",
+  //    "playing": ""
+  //  },
+  //  "tooltip-format": "MPD (connected)",
+  //  "tooltip-format-disconnected": "MPD (disconnected)"
+  //},
+  "custom/waybar-mpris": {
+    "return-type": "json",
+    "exec": "waybar-mpris --autofocus --separator \" \"",
+    "on-click": "waybar-mpris --send toggle",
+    "on-click-right": "waybar-mpris --send player-next",
+    "format": "<span foreground=\"#2e3440\" background=\"#2e3440\"> </span><span foreground=\"#3b4252\" background=\"#2e3440\"></span><span foreground=\"#eceff4\" background=\"#3b4252\"> {}</span><span foreground=\"#2e3440\" background=\"#3b4252\"></span>"
+  },
+  "idle_inhibitor": {
+    "format": "<span foreground=\"#3b4252\" background=\"#2e3440\"></span> {icon} <span foreground=\"#2e3440\" background=\"#3b4252\"></span>",
+    "format-icons": {
+      "activated": "󰅶",
+      "deactivated": "󰾪"
+    }
+  },
+  "custom/arch_updates": {
+    "exec": "~/.config/waybar/custom/arch_updates",
+    "on-click": "~/.config/waybar/custom/arch_updates",
+    "interval": "3600",
+    "return-type": "json",
+    "format": "<span foreground=\"#3b4252\" background=\"#2e3440\"></span><span foreground=\"#eceff4\" background=\"#3b4252\"> 󰏔  {} </span><span foreground=\"#2e3440\" background=\"#3b4252\"></span>"
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 8
+  },
+  "clock": {
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt>{calendar}</tt>",
+    "format":         "<span foreground=\"#88c0d0\" background=\"#2e3440\"></span> {:%H:%M} <span foreground=\"#eceff4\" background=\"#88c0d0\"></span>",
+    "format-alt":     "<span foreground=\"#88c0d0\" background=\"#2e3440\"></span> {:%a %b %e %H:%M} <span foreground=\"#eceff4\" background=\"#88c0d0\"></span>"
+  },
+  "cpu": {
+    "states": {
+      "good":     0,
+      "warning":  50,
+      "critical": 85
+    },
+    "format": "<span foreground=\"#3b4252\" background=\"#2e3440\"></span> 󰍛 {usage}% <span foreground=\"#2e3440\" background=\"#3b4252\"></span>",
+    "tooltip": true
+  },
+  "memory": {
+    "states": {
+      "good":     0,
+      "warning":  50,
+      "critical": 85
+    },
+    "format": "<span foreground=\"#3b4252\" background=\"#2e3440\"></span> 󰘚 {}% <span foreground=\"#2e3440\" background=\"#3b4252\"></span>"
+  },
+  "temperature": {
+    "critical-threshold": 75,
+    "format-critical":    "<span foreground=\"#3b4252\" background=\"#2e3440\"></span> 󰸁 {temperatureC}°C <span foreground=\"#2e3440\" background=\"#3b4252\"></span>",
+    "format":             "<span foreground=\"#3b4252\" background=\"#2e3440\"></span> {icon} {temperatureC}°C <span foreground=\"#2e3440\" background=\"#3b4252\"></span>",
+    "format-icons":       ["󱃃", "󰔏", "󱃂"]
+  },
+  "backlight": {
+    "format": "<span foreground=\"#3b4252\" background=\"#2e3440\"></span> {icon} {percent}% <span foreground=\"#2e3440\" background=\"#3b4252\"></span>",
+    "format-icons": ["󰃞", "󰃟", "󰃠"]
+  },
+  "battery": {
+    "states": {
+      "good":     95,
+      "warning":  30,
+      "critical": 15
+    },
+    "format":          "<span foreground=\"#3b4252\" background=\"#2e3440\"></span> {icon} {capacity}% <span foreground=\"#2e3440\" background=\"#3b4252\"></span>",
+    "format-charging": "<span foreground=\"#3b4252\" background=\"#2e3440\"></span> 󰂄 {capacity}% <span foreground=\"#2e3440\" background=\"#3b4252\"></span>",
+    "format-plugged":  "<span foreground=\"#3b4252\" background=\"#2e3440\"></span> 󰂄 {capacity}% <span foreground=\"#2e3440\" background=\"#3b4252\"></span>",
+    "format-alt":      "<span foreground=\"#3b4252\" background=\"#2e3440\"></span> {icon} {time} <span foreground=\"#2e3440\" background=\"#3b4252\"></span>",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰂂"]
+  },
+  "disk": {
+    "states": {
+      "good": 0,
+      "warning": 75,
+      "critical": 90
+    },
+    "format": "<span foreground=\"#3b4252\" background=\"#2e3440\"></span> 󰗮 {percentage_used}% <span foreground=\"#2e3440\" background=\"#3b4252\"></span>",
+    "path": "/"
+  },
+  "network": {
+    "interface":                   "wlan0",
+    "format-wifi":                 "<span foreground=\"#3b4252\" background=\"#2e3440\"></span> {icon} {essid} ({signalStrength}%) <span foreground=\"#2e3440\" background=\"#3b4252\"></span>",
+    "format-ethernet":             "<span foreground=\"#3b4252\" background=\"#2e3440\"></span> 󰈀 {ifname}: {ipaddr}/{cidr} <span foreground=\"#2e3440\" background=\"#3b4252\"></span>",
+    "format-linked":               "<span foreground=\"#3b4252\" background=\"#2e3440\"></span> 󰲝 {ifname} (No IP) <span foreground=\"#2e3440\" background=\"#3b4252\"></span>",
+    "format-disconnected":         "<span foreground=\"#3b4252\" background=\"#2e3440\"></span> 󰲜 Disconnected <span foreground=\"#2e3440\" background=\"#3b4252\"></span>",
+    "format-alt":                  "<span foreground=\"#3b4252\" background=\"#2e3440\"></span> {bandwidthUpBits} / {bandwidthDownBits} <span foreground=\"#2e3440\" background=\"#3b4252\"></span>",
+    "format-icons":                [ "󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "tooltip":                     true,
+    "tooltip-format-wifi":         "{icon} {ipaddr} @ {essid}: {signalStrength}%, {frequency} Hz",
+    "tooltip-format-ethernet":     "󰈀 {ifname}: {ipaddr}/{cidr}",
+    "tooltip-format-disconnected": "󰲜 Disconnected",
+    "tooltip-format":              "{bandwidthUpBits} / {bandwidthDownBits}"
+  },
+  "pulseaudio": {
+    "scroll-step":            1, // %, can be a float
+    "format":                 "<span foreground=\"#3b4252\" background=\"#2e3440\"></span> {icon} {volume}% {format_source}",
+    "format-bluetooth":       "<span foreground=\"#3b4252\" background=\"#2e3440\"></span> 󰂰 {volume}% {format_source}",
+    "format-bluetooth-muted": "<span foreground=\"#3b4252\" background=\"#2e3440\"></span> 󰂲 Muted {format_source}",
+    "format-muted":           "<span foreground=\"#3b4252\" background=\"#2e3440\"></span> 󰖁 Muted {format_source}",
+    "format-source":          "󰍬 {volume}% <span foreground=\"#2e3440\" background=\"#3b4252\"></span>",
+    "format-source-muted":    "󰍭 Muted <span foreground=\"#2e3440\" background=\"#3b4252\"></span>",
+    "format-icons": {
+      "headphone":            "󰋋",
+      "hands-free":           "",
+      "headset":              "󰋎",
+      "phone":                "󰏲",
+      "portable":             "󰏲",
+      "car":                  "󰄋",
+      "default":              ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click":               "pavucontrol"
+  }
+  // "custom/media": {
+  //   "format": "{icon} {}",
+  //   "return-type": "json",
+  //   "max-length": 40,
+  //   "format-icons": {
+  //     "spotify": "",
+  //     "default": "🎜"
+  //   },
+  //   "escape": true,
+  //   "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+  //   // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
+  // }
+}
+// vim: ft=jsonc

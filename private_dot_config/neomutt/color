@@ -1,0 +1,82 @@
+###############
+# Colorscheme
+# mutt color scheme
+
+color normal            default      default         # default colours
+color error             brightred    default         # error messages
+color indicator         brightyellow brightblack     # currently highlighted message
+color tree              brightblack  default         # thread tree
+color tilde             brightblack  default         # blank line padding
+
+color sidebar_divider   brightblack  default
+color sidebar_ordinary  blue         default
+color sidebar_highlight yellow       black
+color sidebar_indicator brightyellow brightblack
+color sidebar_new       brightwhite  default
+color sidebar_flagged   brightgreen  default
+
+color index             blue         default "~A"         # default messages
+color index_number      brightblack  default
+
+color index_author      cyan         default "~A"
+color index_author      brightwhite  default "~N"
+color index_author      brightred    default "~D(!~p|~p)" # deleted messages
+color index_author      yellow       black   "~T"         # tagged messages
+color index_author      brightgreen  default "~F"         # flagged messages
+
+color index_flags       blue         default "~A"
+color index_flags       brightwhite  default "~N"
+color index_flags       brightred    default "~D(!~p|~p)" # deleted messages
+color index_flags       yellow       black   "~T"         # tagged messages
+color index_flags       brightgreen  default "~F"         # flagged messages
+
+color index_subject     blue         default "~A"
+color index_subject     brightwhite  default "~N"         # new messages
+color index_subject     brightred    default "~D(!~p|~p)" # deleted messages
+color index_subject     yellow       black   "~T"         # tagged messages
+color index_subject     brightgreen  default "~F"         # flagged messages
+
+color index             brightwhite  default "~N"         # new messages
+color index             brightred    default "~D(!~p|~p)" # deleted messages
+color index             yellow       black   "~T"         # tagged messages
+color index             brightgreen  default "~F"         # flagged messages
+
+color body              yellow       default         "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
+color body              brightgreen  default         "((@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]),)*@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\.[0-9]?[0-9]?[0-9]\\]):)?[0-9a-z_.+%$-]+@(([0-9a-z-]+\\.)*[0-9a-z-]+\\.?|#[0-9]+|\\[[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\.[0-2]?[0-9]?[0-9]\\])"
+color attachment        magenta      default         # attachments
+color signature         brightwhite  default         # sigs
+color search            black        cyan            # highlight results
+
+color status            white        brightblack
+color status bold       black        cyan        '^([^]+) [^]+ ' 1
+color status            cyan         blue        '()[^]+' 1
+color status bold       black        blue        '([^]+)  ' 1
+color status            blue         brightblack '  '
+
+color status            blue         brightblack ''
+color status reverse    blue         brightblack ' [0-9]+ [a-zA-Z]+ '
+color status reverse    blue         brightblack ' [0-9]+ [a-zA-Z]+ '
+color status            cyan         brightblack '()[^]*$' 1
+color status            black        cyan        '([^]*)$' 1
+
+color hdrdefault        blue         default
+color header            brightcyan   default "^From:"
+color header            brightcyan   default "^Subject:"
+
+color quoted            cyan         default
+color quoted1           brightcyan   default
+color quoted2           blue         default
+color quoted3           green        default
+color quoted4           yellow       default
+color quoted5           red          default
+
+color body              green        default  "^gpg: Good signature from"
+color body              brightred    default  "^gpg: Bad signature from"
+color body              brightred    default  "^gpg: BAD signature from"
+color body              brightred    default  "^gpg: Note: This key has expired!"
+color body              brightyellow default  "^gpg: WARNING: This key is not certified with a trusted signature!"
+color body              brightyellow default  "^gpg:          There is no indication that the signature belongs to the owner."
+color body              brightyellow default  "^gpg: can't handle these multiple signatures"
+color body              brightyellow default  "^gpg: signature verification suppressed"
+color body              brightyellow default  "^gpg: invalid node with packet of type"
+# vim: ft=neomuttrc

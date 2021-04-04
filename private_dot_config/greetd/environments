@@ -1,0 +1,5 @@
+sway-user-service
+zsh
+systemctl reboot
+systemctl suspend
+systemctl hibernate

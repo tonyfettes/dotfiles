@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export NOTMUCH_CONFIG="$XDG_CONFIG_HOME"/notmuch/notmuchrc
+exec /usr/bin/notmuch "$@"

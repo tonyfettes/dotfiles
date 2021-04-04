@@ -1,0 +1,139 @@
+{
+  // Proxy
+  // "http.proxy": "http://127.0.0.1:8118",
+  // coc.nvim
+  "coc.source.syntax.priority": 2,
+  "coc.preferences.extensionUpdateCheck": "daily",
+  // Diagnostic
+  "diagnostic.warningSign": "",
+  "diagnostic.errorSign": "",
+  "diagnostic.infoSign": "",
+  "diagnostic.hintSign": "",
+  // Explorer
+  "explorer.icon.enableNerdfont": true,
+  // Highlight
+  "highlight.document.enable": false,
+  "highlight.disableLanguages": ["c", "cpp", "tex"],
+  // Git
+  "git.addedSign.hlGroup": "GitGutterAdd",
+  "git.changedSign.hlGroup": "GitGutterChange",
+  "git.removedSign.hlGroup": "GitGutterDelete",
+  "git.topRemovedSign.hlGroup": "GitGutterDelete",
+  "git.changeRemovedSign.hlGroup": "GitGutterChangeDelete",
+  "git.addGBlameToVirtualText": true,
+  "git.enableGutters": true,
+  // CocList
+  "list.source.files.defaultOptions": ["--number-select"],
+  "list.insertMappings": {
+    "<A-j>": "feedkeys:\\<Down>",
+    "<A-k>": "feedkeys:\\<Up>",
+    "<A-n>": "feedkeys:\\<Down>",
+    "<A-p>": "feedkeys:\\<Up>"
+  },
+  "codeLens.enable": true,
+  "yank.enableCompletion": false,
+
+  // -- Language Support --
+  // Rust
+  "rust-analyzer.checkOnSave.allTargets": false,
+  "rust-analyzer.server.path": "/usr/bin/rust-analyzer",
+  // C/C++: ClangD
+  "clangd.semanticHighlighting": true,
+  "clangd.arguments": ["--background-index", "--suggest-missing-includes", "--cross-file-rename", "--clang-tidy"],
+  // LaTeX
+  "latex.forwardSearch.executable": "zathura",
+  "latex.forwardSearch.args": ["--synctex-forward", "%l:1:%f", "%p"],
+  "latex.build.onSave": true,
+  "latex.lint.onChange": false,
+  // XML
+  "xml.java.home": "/usr/lib/jvm/java-14-openjdk",
+  // Python
+  //"python.jediEnabled": true,
+  // LSP
+  "languageserver": {
+    // Hardware Description Language
+    "hdlChecker": {
+      "command": "{{ .xdg.bin }}/hdl_checker",
+      "args": [
+        "--lsp"
+      ],
+      "filetypes": [
+        "vhdl",
+        "verilog",
+        "systemverilog",
+        "verilog_systemverilog"
+      ]
+    }
+  },
+  // R
+  "r.lsp.path": "/usr/bin/R",
+  // Natural Language
+  // English
+  "coc.source.word.priority": 1,
+  "cSpell.ignorePaths": [
+    "~/.config/nvim/plug.vim"
+  ],
+  "cSpell.userWords": [
+    "Fettes",
+    "Gmail",
+    "Haoxiang",
+    "Hypergeometric",
+    "Iosevka",
+    "Jiao",
+    "Nord",
+    "SJTU",
+    "Sarasa",
+    "clangd",
+    "concat",
+    "essid",
+    "ifname",
+    "numpy",
+    "nvim",
+    "pulseaudio",
+    "riscv",
+    "tonyfettes",
+    "verilog",
+    "wifi"
+  ],
+  "cSpell.enabledLanguageIds": [
+    "asciidoc",
+    "c",
+    "cpp",
+    "csharp",
+    "css",
+    "git-commit",
+    "go",
+    "handlebars",
+    "haskell",
+    "html",
+    "jade",
+    "java",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "jsonc",
+    "latex",
+    "tex",
+    "less",
+    "markdown",
+    "php",
+    "plaintext",
+    "pug",
+    "python",
+    "restructuredtext",
+    "rust",
+    "scala",
+    "scss",
+    "text",
+    "typescript",
+    "typescriptreact",
+    "vim",
+    "yaml",
+    "yml"
+  ],
+  // Chinese
+  "rime.enabled": false,
+  "rime.priority": 0,
+  "rime.schemaId": "luna_pinyin_simp",
+  "rime.binaryPath": "{{ .xdg.bin }}/rime-cli"
+}

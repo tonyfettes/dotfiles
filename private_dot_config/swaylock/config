@@ -1,0 +1,39 @@
+line-color=00000000
+key-hl-color=eceff4ff
+bs-hl-color=ebcb8bff
+separator-color=00000000
+indicator-radius=256
+indicator-thickness=5
+
+line-ver-color=00000000
+line-wrong-color=00000000
+line-clear-color=00000000
+
+inside-color=88c0d044
+inside-ver-color=a3be8c44
+inside-wrong-color=bf616a44
+inside-clear-color=ebcb8b44
+
+ring-color=88c0d0ff
+ring-ver-color=a3be8cff
+ring-wrong-color=bf616aff
+ring-clear-color=ebcb8bff
+
+font='Iosevka Term'
+font-size=40
+
+text-color=ebcb8b
+text-clear-color=ebcb8b
+text-wrong-color=ebcb8b
+text-ver-color=ebcb8b
+text-caps-lock-color=ebcb8b
+
+clock
+timestr=%H:%M
+datestr=%a, %d %b
+screenshots
+indicator
+effect-blur=7x5
+fade-in=0.2
+#image=~/Pictures/wallpaper/blur_nord.png
+# vim: ft=dosini

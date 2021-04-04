@@ -1,0 +1,14 @@
+[Unit]
+Description=Create a pipe for Wayland Overlay Bar
+Documentation=https://github.com/francma/wob
+PartOf=wayland-session.target
+After=wayland-session.target
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/usr/bin/mkfifo %t/wobpipe
+ExecStop=/usr/bin/rm %t/wobpipe
+
+[Install]
+WantedBy=wayland-session.target

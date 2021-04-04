@@ -1,0 +1,28 @@
+#!/usr/bin/env python
+
+import json
+import subprocess
+
+handler = subprocess.Popen(
+    ["checkupdates"],
+    stdin=subprocess.PIPE,
+    stdout=subprocess.PIPE,
+    stderr=subprocess.PIPE
+)
+upgradable_packages: list[str] = []
+data = {}
+
+while not handler.stdout.closed:
+    stdout_line = handler.stdout.readline().decode()
+    if stdout_line == '':
+        break
+    upgradable_packages.append(stdout_line)
+
+handler.terminate()
+
+data['text'] = str(len(upgradable_packages))
+data['tooltip'] = ''
+for pack in upgradable_packages:
+    data['tooltip'] += pack
+
+print(json.dumps(data))

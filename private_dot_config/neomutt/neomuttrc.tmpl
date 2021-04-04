@@ -1,0 +1,245 @@
+#
+# Starter neomuttrc file, with just a few suggestions and settings.
+#
+# This file purposely doesn't include hooks, keybinding, macros, colors, etc.
+# Read the manual, explore, and have fun!
+#
+
+source ~/.config/neomutt/identity
+
+set folder           = ~/personal/mail
+set alias_file       = ~/.config/neomutt/alias
+set header_cache     = ~/.cache/neomutt/headers
+set message_cachedir = ~/.cache/neomutt/bodies
+set certificate_file = ~/.config/neomutt/certificates
+set mailcap_path     = ~/.config/neomutt/mailcap
+set signature        = ~/.config/neomutt/signature
+set tmpdir           = /tmp/neomutt
+
+source ~/.config/neomutt/mailboxes
+
+# Basic Options --------------------------------------
+set   wait_key = no       # shut up, mutt
+set   mbox_type = Maildir # mailbox type
+set   timeout = 3         # idle time before scanning
+set   mail_check = 0      # minimum time between scans
+unset move                # gmail does that
+set   delete              # don't ask, just do
+unset confirmappend       # don't ask, just do!
+set   quit                # don't ask, just do!!
+unset mark_old            # read/new is good enough for me
+#set beep_new             # bell on new mail
+set   new_mail_command = "notify-send 'New Email' '%n new, %u unread.'"
+set   pipe_decode         # strip headers and eval mimes when piping
+set   thorough_search     # strip headers and eval mimes before searching
+
+###############
+# Example: local mailboxes
+#
+# Some people use mbsync or getmail to retrieve their mail locally.
+#
+#set folder = ~/Mail           # This has the shortcut '+' or '='
+#set spoolfile = "+inbox"      # This has the shortcut '!'
+#set record = "+sent"
+#set trash = "+trash"
+#set postponed = "+drafts"
+
+#mailboxes ! +neomutt +family +work
+
+###############
+# Example: Gmail over IMAP
+#
+#set imap_user = ".....@gmail.com"
+
+# To avoid storing your password in the .neomuttrc:
+# echo -n 'mypassword' | gpg --encrypt -r 0x1234567890ABCDEF > ~/.neomutt/account.gpg
+#set imap_pass = "`gpg --batch -q --decrypt ~/.neomutt/account.gpg`"
+#
+#set folder = imaps://imap.gmail.com/
+#set spoolfile = "+gmail/inbox"
+
+###############
+# Notmuch Settings
+#
+set virtual_spoolfile = yes
+set nm_default_url = "notmuch://{{ .chezmoi.homedir }}/personal/mail"
+virtual-mailboxes "inbox" "notmuch://?query=tag:inbox"
+
+###############
+# Generic Key Bindings
+#
+# See: https://neomutt.org/guide/reference#4-%C2%A0functions
+set abort_key = "<Esc>"
+
+bind generic z    noop
+
+bind generic \Cu  half-up
+bind generic \Cd  half-down
+
+bind generic \Cy  previous-line
+bind generic \Ce  next-line
+
+bind generic \Cb  previous-page
+bind generic \Cf  next-page
+
+bind generic gg   first-entry
+bind generic G    last-entry
+
+bind generic N    search-opposite
+bind generic ?    search-reverse
+bind generic <F1> help
+
+bind generic zz   current-middle
+bind generic zt   current-top
+bind generic zb   current-bottom
+
+bind generic h    exit
+bind generic mt   tag-entry
+
+###############
+# Pager settings
+#
+ignore *
+unignore From Date To Cc Bcc Subject
+hdr_order From Date: From: To: Cc: Bcc: Subject:
+
+set pager_stop
+unset markers
+
+set pager_index_lines = 10 # number of index lines to show
+set pager_context     = 3  # number of context lines to show
+set pager_stop             # don't go to next message automatically
+set menu_scroll            # scroll in menus
+set tilde                  # show tildes like in vim
+unset markers              # no ugly plus signs
+
+set pager_format = " %F  %D   %-50.50s%>  [%Z] %P ☰ %C/%m "
+
+bind pager <F1> help
+bind pager \Cu  half-up
+bind pager \Cd  half-down
+bind pager \Cb  previous-page
+bind pager \Cf  next-page
+bind pager j    next-line
+bind pager k    previous-line
+bind pager h    exit
+bind pager g    noop
+bind pager gg   top
+bind pager G    bottom
+bind pager gr   group-reply
+bind pager l    view-attachments
+
+###############
+# Attachment settings
+#
+# View attachments properly.
+bind attach l   view-mailcap
+bind attach h   exit
+
+# Prefer plain text to html.
+# However, for brain dead clients that bundle attachments inside a
+# multipart/alternative, prefer that alternative.
+alternative_order multipart/mixed multipart/related text/enriched text/plain
+
+# Consult mime.types for determining types of these attachments
+mime_lookup application/octet-stream
+
+# This requires a ~/.mailcap entry with the copiousoutput flag, such as:
+# text/html; lynx -dump -width ${COLUMNS:-80} %s; nametemplate=%s.html; copiousoutput
+# Auto view html document
+auto_view text/html
+
+###############
+# Index settings
+#
+set sort         = threads
+set date_format  = "%m/%d"
+set index_format = "%3C %D  %Z  %-20.20F  %s"
+set sort         = threads                     # like gmail
+set sort_aux     = reverse-last-date-received  # like gmail
+set uncollapse_jump                            # don't collapse on an unread message
+
+bind attach,browser g        noop
+bind attach,browser gg       first-entry
+bind attach,browser G        last-entry
+
+# Remember to `mkdir -p ~/.neomutt/hcache` first:
+#set header_cache= "~/.neomutt/hcache"
+
+bind index g        noop
+bind index gg       first-entry
+bind index G        last-entry
+bind index j        next-entry
+bind index k        previous-entry
+bind index \Cy      previous-line
+bind index \Ce      next-line
+bind index \Cb      previous-page
+bind index \Cf      next-page
+bind index l        display-message # range-like
+bind index ZZ       quit
+bind index d        delete-message  # dd
+bind index za       collapse-thread
+bind index zA       collapse-all
+bind index R        imap-fetch-mail
+bind index y        copy-message    # yy
+bind index m        noop            # (m)ark
+bind index mi       flag-message    # (m)ark as (i)mportant
+bind index ms       set-flag        # (m)ark (s)set status
+bind index w        save-message    # :write
+bind index r        reply           # (r)eply
+bind index gr       group-reply
+bind index o        mail            # open a new line
+bind index e        edit            # :edit
+bind index gn       next-new
+bind index gu       next-unread
+bind index c        change-folder   # :cd
+bind index s        limit           # sieve
+bind index t        modify-labels
+macro index A "<modify-labels>-inbox<enter>"
+
+###############
+# Sidebar settings
+#
+set sidebar_visible = yes
+set sidebar_width = 20
+bind index,pager [  sidebar-prev
+bind index,pager ]  sidebar-next
+bind index,pager \\ sidebar-open
+bind index,pager <Space>  noop
+bind index,pager <Space>e sidebar-toggle-visible
+
+###############
+# Status settings
+#
+set status_chars  = " *%A"
+set status_format = " %h  %f   %V%> %?n? %n new ?%?d? %d deleted ?%?t? %t tagged ?%?F? %F important ?%?p? %p postponed ? %m "
+#
+
+###############
+# Message composition settings
+#
+set edit_headers
+
+# set editor = "emacsclient -a emacs -t"
+set editor = "nvim"
+
+set mime_type_query_command = "xdg-mime query filetype"
+
+# msmtp is a solid SMTP client.
+# neomutt also has built-in SMTP, or you can use an MTA like exim4 or postfix.
+# set sendmail = "/usr/bin/msmtp"
+
+# lbdb is a versatile contact query tool.
+# Invoke via ctrl-t in an address prompt
+set query_command = "/usr/bin/lbdbq"
+
+###############
+# GnuPG
+#
+#unset crypt_use_gpgme
+#source /usr/local/share/doc/neomutt/samples/gpg.rc
+#set pgp_default_key = "0x1234567890ABCDEF"
+#set crypt_opportunistic_encrypt
+#set postpone_encrypt
+
+source ~/.config/neomutt/color

@@ -1,0 +1,10 @@
+[Unit]
+Description=Intelligent Input Bus
+Documentation=man:ibus-daemon(1)
+
+[Service]
+Environment="DISPLAY=%I"
+ExecStart=/usr/bin/ibus-daemon --replace --panel=/usr/lib/ibus/ibus-wayland
+
+[Install]
+WantedBy=

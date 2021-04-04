@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+export ANDROID_PREFS_ROOT="$XDG_CONFIG_HOME"/android
+export ANDROID_EMULATOR_HOME="$XDG_DATA_HOME"/android/emulator
+/usr/bin/adb "$@"

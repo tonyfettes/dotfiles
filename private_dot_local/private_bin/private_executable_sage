@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+export DOT_SAGE="$XDG_CONFIG_HOME"/sage
+export MAXIMA_USERDIR="$XDG_CONFIG_HOME"/maxima
+
+exec /usr/bin/sage "$@"

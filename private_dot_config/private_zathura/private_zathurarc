@@ -1,0 +1,32 @@
+set adjust-open "width"
+set font "Sarasa Term SC 15"
+set guioptions "v"
+set selection-clipboard clipboard
+set statusbar-home-tilde true
+set window-title-home-tilde true
+set default-bg "#2e3440"
+set inputbar-bg "#2e3440"
+set inputbar-fg "#eceff4"
+set statusbar-bg "#2e3440"
+set statusbar-fg "#eceff4"
+set highlight-color "#81a1c1"
+set highlight-active-color "#88c0d0"
+set completion-highlight-bg "#5e81ac"
+set completion-highlight-fg "#e5e9f0"
+set completion-bg "#2e3440"
+set completion-fg "#d8dee9"
+set index-bg "#2e3440"
+set index-fg "#d8dee9"
+set index-active-fg "#eceff4"
+set index-active-bg "#81a1c1"
+set notification-error-bg "#bf616a"
+set notification-error-fg "#eceff4"
+set notification-warning-bg "#ebcb8b"
+set notification-warning-fg "#2e3440"
+set notification-bg "#2e3440"
+set notification-fg "#eceff4"
+set synctex true
+set synctex-editor-command "/usr/bin/nvr --remote-silent +%{line} %{input}"
+set recolor-lightcolor "#2e3440"
+set recolor-darkcolor "#eceff4"
+# vim: ft=zsh

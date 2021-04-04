@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+export WEECHAT_HOME="${XDG_CONFIG_HOME}"/weechat
+exec /usr/bin/weechat -d "${XDG_CONFIG_HOME}"/weechat

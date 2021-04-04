@@ -1,0 +1,13 @@
+[Unit]
+Description=Socket for Wayland Overlay Bar
+Documentation=https://github.com/francma/wob
+PartOf=wayland-session.target
+After=wayland-session.target
+Requires=wob-mkfifo.service
+After=wob-mkfifo.service
+
+[Socket]
+ListenFIFO=%t/wobpipe
+
+[Install]
+WantedBy=wayland-session.target

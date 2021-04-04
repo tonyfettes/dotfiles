@@ -1,0 +1,47 @@
+* {
+  font-family: "Sarasa Term SC";
+  font-size: 18px;
+}
+
+window {
+  margin: 0px;
+  border: 2px solid #8fbcbb;
+  background-color: #2e3440;
+  border-radius: 0;
+}
+
+#input {
+  margin: 5px;
+  color: #e5e9f0;
+  background-color: #2e3440;
+}
+
+#inner-box {
+  margin: 5px;
+  border: none;
+  background-color: #2e3440;
+}
+
+#outer-box {
+  margin: 5px;
+  border: none;
+  background-color: #2e3440;
+}
+
+#scroll {
+  margin: 0px;
+  border: none;
+}
+
+#text {
+  margin: 5px;
+  border: none;
+  color: #d8dee9;
+}
+
+#entry:selected {
+  font-weight: bold;
+  border-radius: 0;
+  outline: none;
+  background-color: #3b4252;
+}

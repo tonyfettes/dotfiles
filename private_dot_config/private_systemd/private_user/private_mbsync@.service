@@ -1,0 +1,11 @@
+[Unit]
+Description=Mailbox synchronization service
+BindsTo=wayland-session.target
+After=wayland-session.target
+Requires=password-cache.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/mbsync -c %h/.config/isync/mbsyncrc -V %i
+Environment=NOTMUCH_CONFIG=%h/.config/notmuch/notmuchrc
+ExecStartPost=/usr/bin/notmuch new

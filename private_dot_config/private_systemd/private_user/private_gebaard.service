@@ -1,0 +1,12 @@
+[Unit]
+Description=A Super Simple WM Independent Touchpad Gesture Daemon for libinput
+Documentation=file:/usr/share/doc/gebaar/README.md
+BindsTo=wayland-session.target
+After=wayland-session.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/gebaard
+
+[Install]
+WantedBy=wayland-session.target

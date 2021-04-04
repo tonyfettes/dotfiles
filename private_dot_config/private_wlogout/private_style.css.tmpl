@@ -1,0 +1,87 @@
+* {
+  background-image: none;
+}
+
+window {
+  background-image: image(url("{{ .wallpaper }}"));
+  background-color: rgba(46, 52, 64, 0.9);
+  background-blend-mode: darken;
+}
+
+button {
+  font-family: "Iosevka Term";
+  font-size: 50px;
+  font-weight: 300;
+  /* text-shadow: 5px 5px #2e3440; */
+  color: #d8dee9;
+  background-color: #2e3440;
+  border-style: none;
+  border-width: 0px;
+  border-radius: 0px;
+  /* background-repeat: space; */
+  background-position: center;
+  background-size: 30%;
+  transition-property: background-color, color, font-size;
+  transition-duration: 0.5s;
+}
+
+button:focus{
+  background-color: #4c566a;
+}
+
+button:active {
+  background-color: #d8dee9;
+  outline-style: none;
+}
+
+button:hover {
+  background-color: #4c566a;
+}
+
+#lock {
+  background-image: image(url("{{ .xdg.config }}/wlogout/icons/lock-512px.svg"));
+}
+
+#lock:focus, #lock:hover {
+  background-color: #a3be8c;
+}
+
+#logout {
+  background-image: image(url("{{ .xdg.config }}/wlogout/icons/exit_to_app-24px.svg"));
+}
+
+#logout:focus, #logout:hover {
+  background-color: #ebcb8b;
+}
+
+#suspend {
+  background-image: image(url("{{ .xdg.config }}/wlogout/icons/pause_circle_outline-24px.svg"));
+}
+
+#suspend:focus, #suspend:hover {
+  background-color: #8fbcbb;
+}
+
+#hibernate {
+  background-image: image(url("{{ .xdg.config }}/wlogout/icons/hotel-24px.svg"));
+}
+
+#hibernate:focus, #hibernate:hover {
+  background-color: #81a1c1;
+}
+
+#shutdown {
+  background-image: image(url("{{ .xdg.config }}/wlogout/icons/power_settings_new-24px.svg"));
+}
+
+#shutdown:focus, #shutdown:hover {
+  background-color: #bf616a;
+}
+
+#reboot {
+  background-image: image(url("{{ .xdg.config }}/wlogout/icons/refresh-24px.svg"));
+}
+
+#reboot:focus, #reboot:hover {
+  background-color: #d08770;
+}

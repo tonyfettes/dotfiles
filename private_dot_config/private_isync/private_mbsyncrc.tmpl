@@ -1,0 +1,229 @@
+# tonyfettes.com
+
+IMAPAccount tonyfettes
+Host imap.tonyfettes.com
+User {{ .email.tonyfettes }}
+PassCmd "gopass show -o mail/{{ .email.tonyfettes }}"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore tonyfettes-remote
+Account tonyfettes
+
+MaildirStore tonyfettes-local
+SubFolders Verbatim
+Path ~/personal/mail/tonyfettes/
+Inbox ~/personal/mail/tonyfettes/inbox
+
+Channel tonyfettes
+Far :tonyfettes-remote:
+Near :tonyfettes-local:
+SyncState *
+
+IMAPAccount sjtu
+Host imap.sjtu.edu.cn
+User {{ .email.sjtu }}
+PassCmd "gopass show -o mail/{{ .email.sjtu }}"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+# sjtu.edu.cn
+
+IMAPStore sjtu-remote
+Account sjtu
+
+MaildirStore sjtu-local
+SubFolders Verbatim
+Path ~/personal/mail/sjtu/
+Inbox ~/personal/mail/sjtu/inbox
+
+Channel sjtu-default
+Far :sjtu-remote:
+Near :sjtu-local:
+Patterns "INBOX" "inbox"
+SyncState *
+
+Channel sjtu-sent
+Far :sjtu-remote:Sent
+Near :sjtu-local:sent
+Create Near
+SyncState *
+
+Channel sjtu-trash
+Far :sjtu-remote:Trash
+Near :sjtu-local:trash
+Create Near
+SyncState *
+
+Channel sjtu-spam
+Far :sjtu-remote:Junk
+Near :sjtu-local:spam
+Create Near
+SyncState *
+
+Channel sjtu-drafts
+Far :sjtu-remote:Drafts
+Near :sjtu-local:drafts
+Create Near
+SyncState *
+
+Group sjtu
+Channel sjtu-default
+Channel sjtu-sent
+Channel sjtu-trash
+Channel sjtu-spam
+Channel sjtu-drafts
+
+# gmail.com
+
+IMAPAccount gmail
+Host imap.gmail.com
+User {{ .email.gmail }}
+PassCmd "gopass show -o mail/{{ .email.gmail }}"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore gmail-remote
+Account gmail
+
+MaildirStore gmail-local
+SubFolders Verbatim
+Path ~/personal/mail/gmail/
+Inbox ~/personal/mail/gmail/inbox
+
+Channel gmail-default
+Far :gmail-remote:
+Near :gmail-local:
+Patterns "INBOX" "inbox"
+SyncState *
+
+Channel gmail-drafts
+Far :gmail-remote:"[Gmail]/Drafts"
+Near :gmail-local:drafts
+Create Near
+SyncState *
+
+Channel gmail-sent
+Far :gmail-remote:"[Gmail]/Sent Mail"
+Near :gmail-local:sent
+Create Near
+SyncState *
+
+Channel gmail-starred
+Far :gmail-remote:"[Gmail]/Starred"
+Near :gmail-local:starred
+Create Near
+SyncState *
+
+Channel gmail-trash
+Far :gmail-remote:"[Gmail]/Trash"
+Near :gmail-local:trash
+Create Near
+SyncState *
+
+Channel gmail-archive
+Far :gmail-remote:"[Gmail]/All Mail"
+Near :gmail-local:archive
+Create Near
+SyncState *
+
+Channel gmail-important
+Far :gmail-remote:"[Gmail]/Important"
+Near :gmail-local:important
+SyncState *
+Create Near
+SyncState *
+
+Channel gmail-spam
+Far :gmail-remote:"[Gmail]/Spam"
+Near :gmail-local:spam
+Create Near
+SyncState *
+
+#Channel gmail-aur
+#Far :gmail-remote:AUR
+#Near :gmail-local:aur
+#Create Near
+#SyncState *
+#
+#Channel gmail-game
+#Far :gmail-remote:Game
+#Near :gmail-local:game
+#Create Near
+#SyncState *
+#
+#Channel gmail-github
+#Far :gmail-remote:GitHub
+#Near :gmail-local:github
+#Create Near
+#SyncState *
+#
+#Channel gmail-hez
+#Far :gmail-remote:HEZ
+#Near :gmail-local:hez
+#Create Near
+#SyncState *
+#
+#Channel gmail-news
+#Far :gmail-remote:News
+#Near :gmail-local:news
+#Create Near
+#SyncState *
+#
+#Channel gmail-receipts
+#Far :gmail-remote:Receipts
+#Near :gmail-local:receipts
+#Create Near
+#SyncState *
+#
+#Channel gmail-verification
+#Far :gmail-remote:Verification
+#Near :gmail-local:verification
+#Create Near
+#SyncState *
+#
+#Channel gmail-wakatime
+#Far :gmail-remote:WakaTime
+#Near :gmail-local:wakatime
+#Create Near
+#SyncState *
+#
+#Channel gmail-sjtu
+#Far :gmail-remote:SJTU
+#Near :gmail-local:sjtu
+#Create Near
+#SyncState *
+#
+#Channel gmail-sjtu/umji
+#Far :gmail-remote:SJTU/UMJI
+#Near :gmail-local:sjtu/umji
+#Create Near
+#SyncState *
+#
+#Channel gmail-sjtu/umji/dd
+#Far :gmail-remote:SJTU/UMJI/DD
+#Near :gmail-local:sjtu/umji/dd
+#Create Near
+#SyncState *
+#
+#Channel gmail-sjtu/umji/vy200
+#Far :gmail-remote:SJTU/UMJI/VY200
+#Near :gmail-local:sjtu/umji/vy200
+#Create Near
+#SyncState *
+#
+#Channel gmail-sjtu/umji/wp
+#Far :gmail-remote:SJTU/UMJI/WP
+#Near :gmail-local:sjtu/umji/wp
+#Create Near
+#SyncState *
+
+Group gmail
+Channel gmail-default
+Channel gmail-drafts
+Channel gmail-sent
+Channel gmail-starred
+Channel gmail-trash
+Channel gmail-archive
+Channel gmail-important
+Channel gmail-spam

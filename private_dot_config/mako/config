@@ -1,0 +1,18 @@
+layer=overlay
+anchor=bottom-right
+font=Sarasa Term SC 16
+background-color=#3b4252dd
+text-color=#eceff4ff
+width=604
+height=604
+margin=40
+padding=15
+border-size=2
+border-color=#4c566aff
+progress-color=over #88c0d0ff
+icons=1
+max-icon-size=128
+format=<span foreground="#88c0d0" font="15"><big><b>%s</b></big></span>\n%b
+default-timeout=3000
+group-by=app-name
+# vim: ft=dosini

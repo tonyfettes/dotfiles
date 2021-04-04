@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export HOME=${XDG_DATA_HOME}/Steam
+exec /usr/bin/steam "$@"

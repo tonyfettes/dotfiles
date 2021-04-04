@@ -1,0 +1,4 @@
+#!/bin/bash
+
+HOME=${XDG_DATA_HOME}/w3m
+exec /usr/bin/w3m "$@"

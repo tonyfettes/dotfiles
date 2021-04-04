@@ -1,0 +1,6 @@
+text/html; cp %s %s.html && qutebrowser --target window :open file://%s.html;
+text/html; HOME=/home/tonyfettes/.local/share/w3m w3m -I %{charset} -T text/html; copiousoutput;
+text/plain; nvim %s;
+application/pdf; zathura %s &> /dev/null;
+application/*; xdg-open %s &> /dev/null &;
+image/*; imv %s &> /dev/null &;

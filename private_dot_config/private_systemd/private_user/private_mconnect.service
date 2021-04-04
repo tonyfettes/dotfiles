@@ -1,0 +1,8 @@
+[Unit]
+Description=KDE Connect protocol implementation in Vala/C
+
+[Service]
+ExecStart=/usr/bin/mconnect -d
+
+[Install]
+WantedBy=multi-user.target

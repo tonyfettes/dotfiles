@@ -1,0 +1,3 @@
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#4c566a"
+export ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+export ZSH_AUTOSUGGEST_USE_ASYNC=true

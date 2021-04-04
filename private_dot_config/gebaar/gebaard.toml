@@ -1,0 +1,11 @@
+[commands.swipe.three]
+up = "swaymsg focus up"
+down = "swaymsg focus down"
+left = "swaymsg focus left"
+right = "swaymsg focus right"
+
+[commands.swipe.four]
+up = "swaymsg move up"
+down = "swaymsg move down"
+left = "swaymsg move left"
+right = "swaymsg move right"

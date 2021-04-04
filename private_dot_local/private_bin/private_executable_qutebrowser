@@ -1,0 +1,26 @@
+#!/bin/bash
+
+[[ -d "${XDG_DATA_HOME}/pki" ]] && mv $XDG_DATA_HOME/pki $HOME/.pki
+/usr/bin/qutebrowser --qt-flag ignore-gpu-blocklist --qt-flag enable-gpu-rasterization --qt-flag enable-native-gpu-memory-buffers --qt-flag num-raster-threads=4 --qt-flag enable-accelerated-video-decode "$@" 
+[[ $(ps axo comm | grep qutebrowser | wc -l) -eq 2 ]] && mv $HOME/.pki $XDG_DATA_HOME/pki
+
+#(exec bwrap \
+#  --symlink usr/lib /lib \
+#  --symlink usr/lib64 /lib64 \
+#  --ro-bind /usr/lib /usr/lib \
+#  --ro-bind /usr/lib64 /usr/lib64 \
+#  --ro-bind /usr/bin /usr/bin \
+#  --ro-bind /usr/share /usr/share \
+#  --ro-bind /etc/resolv.conf /etc/resolv.conf \
+#  --ro-bind /etc/fonts /etc/fonts \
+#  --dir /run/user/"$(id -u)" \
+#  --ro-bind /run/user/"$(id -u)"/pulse /run/user/"$(id -u)"/pulse \
+#  --ro-bind /run/user/"$(id -u)"/wayland-0 /run/user/"$(id -u)"/wayland-0 \
+#  --proc /proc \
+#  --dev /dev \
+#  --dev-bind /dev/dri /dev/dri \
+#  --tmpfs /tmp \
+#  --unshare-all \
+#  --share-net \
+#  --hostname RESTRICTED \
+#  /usr/bin/qutebrowser)

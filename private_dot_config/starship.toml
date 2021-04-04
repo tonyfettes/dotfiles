@@ -1,0 +1,78 @@
+add_newline = true
+#[┌─╼\\[](#4c566a)$username@$hostname[\\]╾─╼\\[](#4c566a)$time[\\]]$jobs$status
+
+format = """
+[┌─╼\\[](#4c566a)$username@$hostname$time$jobs$status
+[└─╼\\[](#4c566a)$directory[\\]](#4c566a)$git_branch$git_status$git_commit
+$character"""
+
+[character]
+success_symbol = "[▶](bold #4c566a)"
+error_symbol = "[▶](bold red)"
+vicmd_symbol = "[▶](bold #88c0d0)"
+
+[username]
+format = "[$user]($style)"
+style_root = "bold #8fbcbb"
+style_user = "#81a1c1"
+show_always = true
+
+[hostname]
+ssh_only = false
+trim_at = "."
+format = "[$hostname]($style)"
+style = "#81a1c1"
+disabled = false
+
+[time]
+disabled = false
+format = "[\\]╾─╼\\[](#4c566a)[$time]($style)[\\]](#4c566a)"
+style = "#81a1c1"
+time_format = "%H:%M:%S"
+
+[directory]
+format = "[$path]($style)[$read_only]($read_only_style)"
+style = "#81a1c1"
+truncation_symbol = ".../"
+read_only = " "
+read_only_style = "red"
+truncation_length = 8
+
+[jobs]
+threshold = 0
+format = "[╾─╼\\[](#4c566a)[$symbol$number]($style)[\\]](#4c566a)"
+symbol = ""
+style = "#81a1c1"
+
+[status]
+format = "[╾─╼\\[](#4c566a)[$symbol$status]($style)[\\]](#4c566a)"
+symbol = ""
+style = "bold red"
+disabled = false
+
+[git_branch]
+always_show_remote = true
+format = "\n[ ╰╼\\[](#4c566a)[$symbol$branch]($style)[\\]╾─╼\\[](#4c566a)"
+symbol = ""
+style = "#88c0d0"
+
+[git_status]
+format = "[$all_status]($style)"
+style = "#88c0d0"
+conflicted = "!"
+ahead = ">$ahead_count"
+behind = "<$behind_count"
+diverged = ">$ahead_count<$behind_count"
+untracked = "?"
+stashed = "$"
+modified = "m"
+staged = "+"
+renamed = "r"
+deleted = "d"
+
+[git_commit]
+format = "[\\]╾─╼\\[](#4c566a)[$hash$tag]($style)[\\]](#4c566a)"
+only_detached = false
+style = "#88c0d0"
+tag_disabled = false
+tag_symbol = ": "

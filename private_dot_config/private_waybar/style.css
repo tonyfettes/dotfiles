@@ -1,0 +1,183 @@
+* {
+  border: none;
+  border-radius: 0;
+  /* `otf-font-awesome` is required to be installed for icons */
+  /* font-family: Roboto, Helvetica, Arial, sans-serif; */
+  font-family: Iosevka Term Nerd Font Complete Mono, Sarasa Term SC, Material Design Icons;
+  font-size: 18px;
+  min-height: 0;
+  transition-property: none;
+  animation: none;
+  padding: 0;
+  margin: 0;
+}
+
+window#waybar {
+  background-color: rgba(46, 52, 64, 0.5);
+  color: #eceff4;
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+#workspaces button {
+  padding: 0;
+  background-color: #5e81ac;
+  color: #2e3440;
+  border: none;
+  padding: 0;
+  min-width: 0;
+}
+
+#workspaces button:hover {
+  background: #5e81ac;
+  box-shadow: inset 0 0 #5e81ac;
+}
+
+#workspaces button.visible {
+  background-color: #81a1c1;
+  color: #2e3440;
+}
+
+#workspaces button.focused {
+  background-color: #88c0d0;
+  color: #2e3440;
+}
+
+#workspaces button.urgent {
+  background-color: #ebcb8b;
+  color: #2e3440;
+}
+
+#mode {
+    background-color: #8fbcbb;
+    color: #2e3440;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#tray,
+#idle_inhibitor,
+#mpd {
+  background-color: #3b4252;
+  color: #eceff4;
+}
+
+#clock {
+  background-color: #88c0d0;
+  color: #2e3440;
+}
+
+#tray {
+  background-color: #2e3440;
+  color: #eceff4;
+}
+
+#memory.good {
+  background-color: #3b4252;
+  color: #a3be8c;
+}
+
+#memory.warning {
+  background-color: #3b4252;
+  color: #ebcb8b;
+}
+
+#memory.critical {
+  background-color: #3b4252;
+  color: #bf616a;
+}
+
+#cpu.good {
+  background-color: #3b4252;
+  color: #a3be8c;
+}
+
+#cpu.warning {
+  background-color: #3b4252;
+  color: #ebcb8b;
+}
+
+#cpu.critical {
+  background-color: #3b4252;
+  color: #bf616a;
+}
+
+#battery.charging {
+  background-color: #3b4252;
+  color: #a3be8c;
+}
+
+#battery.unknown {
+  background-color: #3b4252;
+  color: #88c0d0;
+}
+
+#battery.good {
+  background-color: #3b4252;
+  color: #a3be8c;
+}
+
+#battery.warning {
+  background-color: #3b4252;
+  color: #ebcb8b;
+}
+
+#battery.critical {
+  background-color: #3b4252;
+  color: #bf616a;
+}
+
+#disk.good {
+  background-color: #3b4252;
+  color: #a3be8c;
+}
+
+#disk.warning {
+  background-color: #3b4252;
+  color: #ebcb8b;
+}
+
+#disk.critical {
+  background-color: #3b4252;
+  color: #bf616a;
+}
+
+
+@keyframes blink {
+    to {
+        background-color: #3b4252;
+        color: #2e3440;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background-color: #3b4252;
+    color: #bf616a;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#idle_inhibitor {
+  background-color: #3b4252;
+}
+
+#idle_inhibitor.activated {
+  background-color: #3b4252;
+  color: #ebcb8b;
+}
